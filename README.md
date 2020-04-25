@@ -34,13 +34,13 @@ Sets up a function to be executed once the `triggerFunction` returns `true`. `Do
 
 ### DoLaterListen(message, callbackFunction, callbackData, once) ###
 
-Sets up a function to be executed once the global message `message` is broadcast by `DoLaterBroadcast()`. The `callbackFunction` will be executed in the scope of the instance that calls `DoLaterBroadcast()`. The `callbackFunction` is passed `callbackData` as the 0th argument from `DoLaterListen()` **and is also** passed `broadcastData` from `DoLaterBroadcast()` as the 1th argument.
+Sets up a function to be executed once the global message `message` is broadcast by `DoLaterBroadcast()`. The `callbackFunction` will be executed in the scope of the instance that calls `DoLaterBroadcast()`. The `callbackFunction` is passed `callbackData` as the `argument0` from `DoLaterListen()` **and is also** passed `broadcastData` from `DoLaterBroadcast()` as `argument1`.
 
 &nbsp;
 
 ### DoLaterBroadcast(message, broadcastData) ###
 
-Executes functions associated with the global message `message` (see above).
+Executes functions associated with the global message `message` (see above). `broadcastData1` is passed into the callback function as `argument1`.
 
 &nbsp;
 
