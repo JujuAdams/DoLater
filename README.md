@@ -21,7 +21,7 @@ DoLater(60, //After 60 frames
             show_message(data); //Show a message
         },
         "Hello world!", //Set our message to "Hello world!"
-        true); //And do it once
+        true); //Do it once
 ```
 
 &nbsp;
