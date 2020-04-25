@@ -10,6 +10,12 @@ DoLater functions all share the same basic behaviour: the `callbackFunction` wil
 
 &nbsp;
 
+### DoLaterTick(tickSize) ###
+
+Call in a Step event to update the library. `tickSize` controls how quickly `DoLater()` frame timers are counted down; a `tickSize` of `0.5` for example will cause `DoLater()` functions to be called after twice the defined number of frames. Use a `tickSize` of `1` if you don't want to use delta timing.
+
+&nbsp;
+
 ### DoLater(delayFrames, callbackFunction, callbackData, once) ###
 
 Sets up a function to be executed after a certain number of frames, as defined by `delayFrames`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed.
@@ -23,13 +29,6 @@ DoLater(60, //After 60 frames
         "Hello world!", //Set our message to "Hello world!"
         true); //Do it once
 ```
-
-&nbsp;
-
-### DoLaterTick(tickSize) ###
-
-Call in a Step event to update the library. `tickSize` controls how quickly `DoLater()` frame timers are counted down; a `tickSize` of `0.5` for example will cause `DoLater()` functions to be called after twice the defined number of frames. Use a `tickSize` of `1` if you don't want to use delta timing.
-
 
 &nbsp;
 
