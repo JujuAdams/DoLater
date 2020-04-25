@@ -55,15 +55,15 @@ Sets up a function to be executed once the `triggerFunction` returns `true`. `Do
 
 _Example:_
 ```GML
-DoLaterTrigger(function(data) {
+DoLaterTrigger(function(data) { //Trigger Function
                    //Trigger the callback function if our instance doesn't exist
                    if (!instance_exists(data.instance)) return true;
                    return false;
                },
-               function(data) {
+               function(data) { //Callback Function
                    show_message("dead :("); //Show a message
                },
-               { data : id }, //Pass the instance id the trigger and callback function
+               { data : id }, //Pass the instance id into the trigger and callback function
                true); //Do it once
 ```
 
