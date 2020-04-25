@@ -2,7 +2,7 @@
 
 <p align="center">Deferred code execution for GameMaker Studio 2.3.0 by <b>@jujuadams</b></p>
 
------
+&nbsp;
 
 `DoLaterTick(tickSize)`
 
@@ -12,13 +12,13 @@
 
 `DoLaterTrigger(triggerFunction, callbackFunction, callbackData, once)`
 
------
+&nbsp;
 
 `DoLaterListen(message, callbackFunction, callbackData, once)`
 
 `DoLaterBroadcast(message, broadcastData)`
 
------
+&nbsp;
 
 `DoLaterAsync(asyncEventName, conditionsArray, callbackFunction, callbackData)`
 
