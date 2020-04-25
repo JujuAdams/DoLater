@@ -5,7 +5,7 @@
 
 &nbsp;
 
-DoLater is a small library to make it easier to execute code after a certain amount of time has passed, a trigger condition has been met, and an async event has fired. Traditionally these tasks have required a lot of boilerplate code but, thanks to GMS2.3.0's new GML features, it's easier than ever to keep code clean and organised.
+DoLater is a small library to make it easier to execute code after a certain amount of time has passed, a trigger condition has been met, or an async event has fired. Traditionally these tasks have required a lot of boilerplate code but, thanks to GMS2.3.0's new GML features, it's easier than ever to keep code clean and organised.
 
 &nbsp;
 
