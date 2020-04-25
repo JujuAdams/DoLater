@@ -62,7 +62,7 @@ DoLaterTrigger(function(data) { //Trigger Function
                function(data) { //Callback Function
                    show_message("dead :("); //Show a message
                },
-               { data : id }, //Pass the instance id into the trigger and callback function
+               { instance : id }, //Pass the instance id into the trigger and callback function
                true); //Do it once
 ```
 
@@ -72,11 +72,27 @@ DoLaterTrigger(function(data) { //Trigger Function
 
 Sets up a function to be executed once the global message `message` is broadcast by `DoLaterBroadcast()`. In addition to `callbackData`, the callback function is passed `broadcastData` from `DoLaterBroadcast()` as `argument1`.
 
+_Example:_
+```GML
+DoLaterListen("yell", //When we received the "yell" message
+              function(callbackData, broadcastData) {
+                  show_message(string(callbackData.name) + ": " + broadcastData); //Show a message
+              },
+              { name : "Lunacharsky" }, //Pass our name into the callback function when it's executed
+              false); //Always listen for the "yell" message
+```
+
 &nbsp;
 
 ### DoLaterBroadcast(message, broadcastData) ###
 
 Executes functions associated with the global message `message` (see above). `broadcastData1` is passed into the callback function as `argument1`.
+
+_Example:_
+```GML
+DoLaterBroadcast("yell", //Send out the "yell" message
+                 "LOUD NOISES"); //Get every "yell" listener to say "LOUD NOISES"
+```
 
 &nbsp;
 
