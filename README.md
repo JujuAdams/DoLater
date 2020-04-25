@@ -4,7 +4,7 @@
 
 &nbsp;
 
-**DoLater** functions all share the same basic behaviour: the `callbackFunction` will be executed once the required conditions are met. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed. Some **DoLater** functions have a `once` argument; if `once` is set to `false`, `callbackFunction` will be called repeatedly.
+**DoLater** functions all share the same basic behaviour: the `callbackFunction` will be executed once some required conditions are met. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed. Some **DoLater** functions have a `once` argument; if `once` is set to `false`, `callbackFunction` will be called repeatedly.
 
 &nbsp;
 
@@ -52,4 +52,4 @@ Sets up a function to be executed when an async event is returned, provided that
 
 ### DoLaterAsyncWatcher(asyncEventName) ###
 
-&nbsp;
+Executes all `DoLaterAsync()` functions that match `asyncEventName` and have their `conditionsArray` satisfied (see above).
