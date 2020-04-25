@@ -14,6 +14,12 @@ DoLater functions all share the same basic behaviour: the `callbackFunction` wil
 
 Sets up a function to be executed after a certain number of frames, as defined by `delayFrames`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed.
 
+Example:
+```DoLater(60, //After 60 frames
+           function(data) { show_message(data); }, //Show a message
+           "Hello world!", //Set our message to "Hello world!"
+           true); //And do it once```
+
 &nbsp;
 
 ### DoLaterTick(tickSize) ###
