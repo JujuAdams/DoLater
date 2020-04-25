@@ -12,7 +12,7 @@ DoLater functions all share the same basic behaviour: the `callbackFunction` wil
 
 ### DoLaterTick(tickSize) ###
 
-Call in a Step event to update the library. `tickSize` controls how quickly `DoLater()` frame timers are counted down; a `tickSize` of `0.5` for example will cause `DoLater()` functions to be called after twice the defined number of frames. Use a `tickSize` of `1` if you don't want to use delta timing.
+**`DoLaterTick()` must be called in a Step event to update the library.** `tickSize` controls how quickly `DoLater()` frame timers are counted down; a `tickSize` of `0.5` for example will cause `DoLater()` functions to be called after twice the defined number of frames. Use a `tickSize` of `1` if you don't want to use delta timing.
 
 &nbsp;
 
