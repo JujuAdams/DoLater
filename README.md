@@ -4,17 +4,25 @@
 
 &nbsp;
 
+The `callbackFunction` will be executed after the given number of frames in the scope of the instance that calls `DoLaterTick()`. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed. If `once` is set to `false`, `callbackFunction` will be called repeatedly.
+
+&nbsp;
+
 `DoLater(delayFrames, callbackFunction, callbackData, once)`
 
-Sets up a function to be executed after a certain number of frames, as defined by `delayFrames`. The `callbackFunction` will be executed after the given number of frames in the scope of the instance that calls `DoLaterTick()`. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed. If `once` is set to `false`, `callbackFunction` will be called repeatedly.
+Sets up a function to be executed after a certain number of frames, as defined by `delayFrames`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed.
 
 &nbsp;
 
 `DoLaterRealtime(delayMS, callbackFunction, callbackData, once)`
 
+Sets up a function to be executed after a certain number of realtime milliseconds, as defined by `delayMS`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed.
+
 &nbsp;
 
 `DoLaterTrigger(triggerFunction, callbackFunction, callbackData, once)`
+
+Sets up a function to be executed once the `triggerFunction` returns `true`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed. `triggerFunction` is executed in the scope of the instance that calls `DoLaterTick()`.
 
 &nbsp;
 
