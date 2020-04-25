@@ -1,4 +1,5 @@
-<h1 align="center">DoLater 1.2.0</h1>
+<p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/DoLater/master/LOGO_small.png" style="display:block; margin:auto; width:300px"></p>
+<h1 align="center">1.2.0</h1>
 
 <p align="center">Deferred code execution for GameMaker Studio 2.3.0</p>
 
