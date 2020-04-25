@@ -4,7 +4,7 @@
 
 &nbsp;
 
-**DoLater** functions all share the same basic behaviour: the `callbackFunction` will be executed once some required conditions are met. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed. Some **DoLater** functions have a `once` argument; if `once` is set to `false`, `callbackFunction` will be called repeatedly.
+**DoLater** functions all share the same basic behaviour: the `callbackFunction` will be executed once some required conditions are met. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed as `argument0`. Some **DoLater** functions have a `once` argument; if `once` is set to `false`, `callbackFunction` will be called repeatedly.
 
 &nbsp;
 
@@ -34,7 +34,7 @@ Sets up a function to be executed once the `triggerFunction` returns `true`. `Do
 
 ### DoLaterListen(message, callbackFunction, callbackData, once) ###
 
-Sets up a function to be executed once the global message `message` is broadcast by `DoLaterBroadcast()`. The `callbackFunction` will be executed in the scope of the instance that calls `DoLaterBroadcast()`. The callback function is passed `callbackData` as `argument0` from `DoLaterListen()` **and is also** passed `broadcastData` from `DoLaterBroadcast()` as `argument1`.
+Sets up a function to be executed once the global message `message` is broadcast by `DoLaterBroadcast()`. The `callbackFunction` will be executed in the scope of the instance that calls `DoLaterBroadcast()`. In addition to `callbackData`, the callback function is passed `broadcastData` from `DoLaterBroadcast()` as `argument1`.
 
 &nbsp;
 
