@@ -4,7 +4,7 @@
 
 &nbsp;
 
-The `callbackFunction` will be executed after the given number of frames in the scope of the instance that calls `DoLaterTick()`. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed. If `once` is set to `false`, `callbackFunction` will be called repeatedly.
+**DoLater** functions all share the same basic behaviour: the `callbackFunction` will be executed once the required conditions are met. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed. Some **DoLater** functions have a `once` argument; if `once` is set to `false`, `callbackFunction` will be called repeatedly.
 
 &nbsp;
 
@@ -45,6 +45,8 @@ Executes functions associated with the global message `message` (see above). `br
 &nbsp;
 
 ### DoLaterAsync(asyncEventName, conditionsArray, callbackFunction, callbackData) ###
+
+Sets up a function to be executed when an async event is returned, provided that the async event matches `asyncEventName` and matches `conditionsArray`.
 
 &nbsp;
 
