@@ -4,7 +4,7 @@
 
 &nbsp;
 
-`DoLaterTick(tickSize)`
+<h1>`DoLaterTick(tickSize)`</h1>
 
 `DoLater(delayFrames, callbackFunction, callbackData, once)`
 
