@@ -104,8 +104,32 @@ The `conditionArray` is an array made of key:value pairs, stored sequentially, t
 
 For example if we expect `async_load[? "id"] == 20` then our `conditionsArray` will be `["id", 20]`. If we expect `async_load[? "id"] == 20) && (async_load[? "status"] == true)` then our `conditionsArray` will be `["id", 20, "status", true]`.
 
+_Example:_
+```GML
+var _id = buffer_save_async(_buffer, _filename, 0, buffer_get_size(_buffer));
+DoLaterAsync("save/load", //Wait for a "save/load" reponse from DoLaterAsyncWatcher()
+             ["id", _id], //Set our condition to async_load[? "id"] == _id
+             function(data) {
+                 if (async_load[? "status"]) //Show a message based on the save status
+                 {
+                     show_message(data + " saved successfully);
+                 }
+                 else
+                 {
+                     show_message(data + " didn't save :(");
+                 }
+             },
+             _filename); //Set the callback function's argument0 to the filename
+```
+
 &nbsp;
 
 ### DoLaterAsyncWatcher(asyncEventName) ###
 
 Executes all `DoLaterAsync()` functions that match `asyncEventName` and have their `conditionsArray` satisfied (see above).
+
+_Example:_
+```GML
+///Save/Load Async Event
+DoLaterAsyncWatcher("save/load"); //Trigger any DoLastAsync() functions waiting for a Save/Load async event
+```
