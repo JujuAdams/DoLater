@@ -4,6 +4,10 @@
 
 &nbsp;
 
+DoLater is a small library to make it easier to execute code after a certain amount of time has passed, a trigger condition has been met, and an async event has fired. Traditionally these tasks have required a lot of boilerplate code but, thanks to GMS2.3.0's new GML features, it's easier than ever to keep code clean and organised.
+
+&nbsp;
+
 DoLater functions all share the same basic behaviour: the `callbackFunction` will be executed once some required conditions are met. The `callbackData` value (which can be any datatype, including an array or a struct) is passed into `callbackFunction` when it is executed as `argument0`. Some DoLater functions have a `once` argument; if `once` is set to `false`, the timer/trigger for the queued function will be reset and the function will be able to fire again repeatedly.
 
 **Tip:** As mentioned, `callbackFunction` can be passed data via `callbackData`. Take advantage of this by passing in crucial information, such as which instance queued the callback function and any other contextual information you might need.
