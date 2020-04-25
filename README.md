@@ -14,10 +14,12 @@ DoLater functions all share the same basic behaviour: the `callbackFunction` wil
 
 Sets up a function to be executed after a certain number of frames, as defined by `delayFrames`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed.
 
-Example:
+_Example:_
 ```GML
 DoLater(60, //After 60 frames
-        function(data) { show_message(data); }, //Show a message
+        function(data) {
+            show_message(data); //Show a message
+        },
         "Hello world!", //Set our message to "Hello world!"
         true); //And do it once
 ```
@@ -35,11 +37,35 @@ Call in a Step event to update the library. `tickSize` controls how quickly `DoL
 
 Sets up a function to be executed after a certain number of realtime milliseconds, as defined by `delayMS`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed.
 
+_Example:_
+```GML
+DoLaterRealtime(1000, //After 1 second
+                function(data) {
+                    show_message(data); //Show a message
+                },
+                "Hello world!", //Set our message to "Hello world!"
+                false); //Show the message again and again for maximum annoyance
+```
+
 &nbsp;
 
 ### DoLaterTrigger(triggerFunction, callbackFunction, callbackData, once) ###
 
-Sets up a function to be executed once the `triggerFunction` returns `true`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed. `triggerFunction` is executed in the scope of the instance that calls `DoLaterTick()`.
+Sets up a function to be executed once the `triggerFunction` returns `true`. `DoLaterTick()` must be called in an instance's Step event for a `DoLater()` function to be executed. `triggerFunction` is executed in the scope of the instance that calls `DoLaterTick()`, and is passed `callbackData` as `argument0`.
+
+_Example:_
+```GML
+DoLaterTrigger(function(data) {
+                   //Trigger the callback function if our instance doesn't exist
+                   if (!instance_exists(data.instance)) return true;
+                   return false;
+               },
+               function(data) {
+                   show_message("dead :("); //Show a message
+               },
+               { data : id }, //Pass the instance id the trigger and callback function
+               true); //Do it once
+```
 
 &nbsp;
 
