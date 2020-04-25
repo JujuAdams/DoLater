@@ -48,7 +48,11 @@ Executes functions associated with the global message `message` (see above). `br
 
 ### DoLaterAsync(asyncEventName, conditionsArray, callbackFunction, callbackData) ###
 
-Sets up a function to be executed when an async event is returned, provided that the async event matches `asyncEventName` and matches `conditionsArray`.
+Sets up a function to be executed when an async event is returned, provided that the async event matches `asyncEventName` and matches `conditionsArray`. Call `DoLasterAsyncWatcher()` in the associated async event to execute functions queued via `DoLaterAsync()`.
+
+The `conditionArray` is an array made of key:value pairs, stored sequentially, that are checked against GameMaker's native `async_load` ds_map when `DoLaterAsyncWatcher()` is called. The first value in each pair is the key that should be found in `async_load`, the second value is the expected value to be found by reading `async_load[? <key>]`.
+
+For example if we expect `async_load[? "id"] == 20` then our `conditionsArray` will be `["id", 20]`. If we expected `async_load[? "id"] == 20) && (async_load[? "status"] == true)` then our `conditionsArray` will be `["id", 20, "status", true]`.
 
 &nbsp;
 
