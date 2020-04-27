@@ -45,7 +45,7 @@
     DoLaterListen("bingbong",
                   function(listenerData, broadcastData)
                   {
-                      show_message(listenerData.text + "\n\n" + senderData);
+                      show_message(listenerData.text + "\n\n" + broadcastData);
                   },
                   {
                       text : "This text appears every time the \"bingbong\" event is broadcast"
