@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "DoLater",
-    "path": "DoLater.yyp",
+    "name": "Do Later",
+    "path": "folders/Do Later.yy",
   },
   "resourceVersion": "1.0",
-  "name": "DoLater",
+  "name": "do_later",
   "tags": [],
   "resourceType": "GMScript",
 }

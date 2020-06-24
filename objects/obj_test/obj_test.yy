@@ -18,9 +18,9 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oTest","path":"objects/oTest/oTest.yy",},"resourceVersion":"1.0","name":null,"tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oTest","path":"objects/oTest/oTest.yy",},"resourceVersion":"1.0","name":null,"tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":62,"eventType":7,"collisionObjectId":null,"parent":{"name":"oTest","path":"objects/oTest/oTest.yy",},"resourceVersion":"1.0","name":null,"tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},"resourceVersion":"1.0","name":null,"tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},"resourceVersion":"1.0","name":null,"tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":62,"eventType":7,"collisionObjectId":null,"parent":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},"resourceVersion":"1.0","name":null,"tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -29,7 +29,7 @@
     "path": "DoLater.yyp",
   },
   "resourceVersion": "1.0",
-  "name": "oTest",
+  "name": "obj_test",
   "tags": [],
   "resourceType": "GMObject",
 }
