@@ -28,13 +28,17 @@ function do_later_publish(_signal, _callback_parameter)
                 else
                 {
                     var _maintain = callback(_callback_parameter);
-                    if (!_maintain || deleted)
+                    
+                    if (!deleted)
                     {
-                        ds_list_delete(_list, _i);
-                    }
-                    else
-                    {
-                        _i++;
+                        if (!_maintain)
+                        {
+                            ds_list_delete(_list, _i);
+                        }
+                        else
+                        {
+                            _i++;
+                        }
                     }
                 }
             }

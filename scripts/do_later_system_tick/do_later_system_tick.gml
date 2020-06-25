@@ -33,15 +33,19 @@ function do_later_system_tick()
                     if (ticks >= delay)
                     {
                         var _maintain = callback();
-                        if (!_maintain || deleted)
+                        
+                        if (!deleted)
                         {
-                            deleted = true;
-                            ds_list_delete(global.__do_later_list, _i);
-                        }
-                        else
-                        {
-                            ticks -= delay;
-                            _i++;
+                            if (!_maintain)
+                            {
+                                deleted = true;
+                                ds_list_delete(global.__do_later_list, _i);
+                            }
+                            else
+                            {
+                                ticks -= delay;
+                                _i++;
+                            }
                         }
                     }
                     else
@@ -74,15 +78,19 @@ function do_later_system_tick()
                     if (current_time - start_time >= delay)
                     {
                         var _maintain = callback();
-                        if (!_maintain || deleted)
+                        
+                        if (!deleted)
                         {
-                            deleted = true;
-                            ds_list_delete(global.__do_later_realtime_list, _i);
-                        }
-                        else
-                        {
-                            start_time += delay;
-                            _i++;
+                            if (!_maintain)
+                            {
+                                deleted = true;
+                                ds_list_delete(global.__do_later_realtime_list, _i);
+                            }
+                            else
+                            {
+                                start_time += delay;
+                                _i++;
+                            }
                         }
                     }
                     else
@@ -117,14 +125,18 @@ function do_later_system_tick()
                     if (trigger())
                     {
                         var _maintain = callback();
-                        if (!_maintain || deleted)
+                        
+                        if (!deleted)
                         {
-                            deleted = true;
-                            ds_list_delete(global.__do_later_trigger_list, _i);
-                        }
-                        else
-                        {
-                            _i++;
+                            if (!_maintain)
+                            {
+                                deleted = true;
+                                ds_list_delete(global.__do_later_trigger_list, _i);
+                            }
+                            else
+                            {
+                                _i++;
+                            }
                         }
                     }
                     else
@@ -159,8 +171,11 @@ function do_later_system_tick()
                         //Execute the callback, but with argument0 set <true> to indicate the operation has timed out
                         callback(true);
                         
-                        deleted = true;
-                        ds_list_delete(global.__do_later_async_list, _i);
+                        if (!deleted)
+                        {
+                            deleted = true;
+                            ds_list_delete(global.__do_later_async_list, _i);
+                        }
                     }
                     else
                     {

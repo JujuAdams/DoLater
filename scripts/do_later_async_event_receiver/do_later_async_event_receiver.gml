@@ -31,14 +31,18 @@ function do_later_async_event_receiver()
                 
                 //Execute the callback. If it returns <true>, remove the operation from the list
                 var _delete = callback(false); //(Also we haven't timed out yet)
-                if (_delete)
+                
+                if (!deleted)
                 {
-                    deleted = true;
-                    ds_list_delete(global.__do_later_async_list, _i);
-                }
-                else
-                {
-                    _i++;
+                    if (_delete)
+                    {
+                        deleted = true;
+                        ds_list_delete(global.__do_later_async_list, _i);
+                    }
+                    else
+                    {
+                        _i++;
+                    }
                 }
             }
         }
