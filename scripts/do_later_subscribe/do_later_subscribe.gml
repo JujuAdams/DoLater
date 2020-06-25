@@ -1,5 +1,5 @@
 /// Queue a function for execution when a signal is broadcast
-/// The callback function is handed a single argument - see do_later_publish()
+/// The callback function is executed with a single argument - This is the <callbackParameter> argument provided when calling do_later_publish()
 ///
 /// @return A struct that represents the created and queued operation
 /// @param signal    Signal to listen for. This can be any datatype, but is typically a string or an enum/macro

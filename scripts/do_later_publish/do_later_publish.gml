@@ -1,4 +1,4 @@
-/// Broadcast a signal that executes matching functions defined with do_later_subscribe()
+/// Broadcast a signal that executes matching operations defined with do_later_subscribe()
 ///
 /// @return N/A (0)
 /// @param signal              Signal to listen for. This can be any datatype, but is typically a string or an enum/macro

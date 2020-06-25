@@ -1,4 +1,4 @@
-/// Destroys a Do Later operation, thus preventing it from ever firing
+/// Destroys a Do Later operation, preventing it from ever firing
 /// 
 /// @return N/A (0)
 /// @param operationStruct   Operation to delete, as returned by a Do Later function

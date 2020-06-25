@@ -23,7 +23,7 @@ function do_later_async_event_receiver()
                 }
                 
                 //Execute the callback. If it returns true, remove the operation from the list
-                if (callback(false))
+                if (callback(false)) //(P.S. We haven't timed out yet)
                 {
                     deleted = true;
                     ds_list_delete(global.__do_later_async_list, _i);

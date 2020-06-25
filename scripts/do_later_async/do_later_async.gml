@@ -1,10 +1,9 @@
 /// Define a function for execution when an async event of a specific type is received
-/// do_later_async_event_receiver() must be called somewhere for functions created with do_later_async() to be executed
+/// do_later_async_event_receiver() must be called somewhere for operations created with do_later_async() to be executed
 /// The function passed into do_later_async() should take one argument. This argument will typically be <false>. If this argument is <true> then the async operation has timed out
 /// When an operation times out, <async_load> will *not* be available. Ensure you're not reading <async_load> before handling timeout behaviour
 /// 
-/// Once the defined function returns <true> then the operation will be removed from Do Later's system
-/// Make sure you return <true> where appropriate or you'll receive erroneous timeouts
+/// Once the defined function returns <true> then the operation will be removed from Do Later's system. Make sure you return <true> where appropriate or you'll receive erroneous timeouts!
 /// Timed-out operations are always destroyed whether the function returns <true> or not
 ///
 /// @return A struct that represents the created and queued operation
