@@ -1,16 +1,17 @@
-/// Define a function for execution when an async event of a specific type is received
+/// Defines a function for execution when an async event of a specific type is received
 /// do_later_async_event_receiver() must be called somewhere for operations created with do_later_async() to be executed
-/// The function passed into do_later_async() should take one argument. This argument will typically be <false>. If this argument is <true> then the async operation has timed out
+/// 
+/// The function passed into do_later_async() should take one argument. This argument will set to <false> if the function is executed from an async event. If this argument is <true> then the async operation has timed out
 /// When an operation times out, <async_load> will *not* be available. Ensure you're not reading <async_load> before handling timeout behaviour
 /// 
-/// Once the defined function returns <true> then the operation will be removed from Do Later's system. Make sure you return <true> where appropriate or you'll receive erroneous timeouts!
-/// Timed-out operations are always destroyed whether the function returns <true> or not
+/// N.B. If the defined function returns <true> then the operation will be removed from Do Later's system. This is the opposite of other Do Later functions!
+/// Make sure you return <true> where appropriate or you'll receive erroneous timeouts. Additionally, timed-out operations are always destroyed whether the callback function returns <true> or not
 ///
 /// @return A struct that represents the created and queued operation
-/// @param eventCode   Async event to target. Use values from the DO_LATER_EVENT enum
-/// @param scope       Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
-/// @param function    Function to execute. This function is rebound to the provided scope
-/// @param timeout     Milliseconds to wait before declaring the operation as timed-out. The defined function is passed <false> as argument0
+/// @param eventCode         Async event to target. Use values from the DO_LATER_EVENT enum
+/// @param timeout           Milliseconds to wait before declaring the operation as timed-out
+/// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
+/// @param function          Function to execute. This function is rebound to the provided scope
 
 enum DO_LATER_EVENT
 {
@@ -29,7 +30,7 @@ enum DO_LATER_EVENT
     SYSTEM             //System             ev_system_event
 }
 
-function do_later_async(_event_code, _scope, _callback, _timeout)
+function do_later_async(_event_code, _timeout, _scope, _callback)
 {
     if (!is_numeric(_scope) || (_scope >= 0)) _callback = method(_scope, _callback);
     

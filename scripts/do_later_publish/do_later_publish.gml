@@ -14,15 +14,21 @@ function do_later_publish(_signal, _callback_parameter)
         {
             with(_list[| _i])
             {
+                var _callback_self = method_get_self(callback);
+                if (DO_LATER_IGNORE_DESTROYED_INSTANCES
+                && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+                {
+                    deleted = true;
+                }
+                
                 if (deleted)
                 {
                     ds_list_delete(_list, _i);
                 }
                 else
                 {
-                    callback(_callback_parameter);
-                    
-                    if (once || deleted)
+                    var _maintain = callback(_callback_parameter);
+                    if (!_maintain || deleted)
                     {
                         ds_list_delete(_list, _i);
                     }

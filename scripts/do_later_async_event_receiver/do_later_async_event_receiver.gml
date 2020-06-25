@@ -10,6 +10,13 @@ function do_later_async_event_receiver()
     {
         with(global.__do_later_async_list[| _i])
         {
+            var _callback_self = method_get_self(callback);
+            if (DO_LATER_IGNORE_DESTROYED_INSTANCES
+            && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+            {
+                deleted = true;
+            }
+            
             if (deleted)
             {
                 ds_list_delete(global.__do_later_list, _i);
@@ -22,8 +29,9 @@ function do_later_async_event_receiver()
                     continue;
                 }
                 
-                //Execute the callback. If it returns true, remove the operation from the list
-                if (callback(false)) //(P.S. We haven't timed out yet)
+                //Execute the callback. If it returns <true>, remove the operation from the list
+                var _delete = callback(false); //(Also we haven't timed out yet)
+                if (_delete)
                 {
                     deleted = true;
                     ds_list_delete(global.__do_later_async_list, _i);
