@@ -1,22 +1,33 @@
-/// @param struct
+/// Destroys a Do Later operation, thus preventing it from ever firing
+/// 
+/// @return N/A (0)
+/// @param operationStruct   Operation to delete, as returned by a Do Later function
 
 function do_later_delete(_struct)
 {
-    if (variable_struct_exists(_struct, "list"))
+    with(_struct)
     {
-        var _list = variable_struct_get(_struct, "list");
-        var _index = ds_list_find_index(_list, _struct);
-        if (_index >= 0) ds_list_delete(_list, _index);
-    }
-    else if (variable_struct_exists(_struct, "signal"))
-    {
-        var _signal = variable_struct_get(_struct, "signal");
-        
-        var _list = global.__do_later_signal_map[? _signal];
-        if (_list != undefined)
+        if (variable_struct_exists(self, "list"))
         {
-            var _index = ds_list_find_index(_list, _struct);
-            if (_index >= 0) ds_list_delete(_list, _index);
+            var _index = ds_list_find_index(list, _struct);
+            if (_index >= 0)
+            {
+                deleted = true;
+                ds_list_delete(list, _index);
+            }
+        }
+        else if (variable_struct_exists(self, "signal"))
+        {
+            var _list = global.__do_later_signal_map[? signal];
+            if (_list != undefined)
+            {
+                var _index = ds_list_find_index(_list, _struct);
+                if (_index >= 0)
+                {
+                    deleted = true;
+                    ds_list_delete(_list, _index);
+                }
+            }
         }
     }
 }
