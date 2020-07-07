@@ -5,6 +5,8 @@
 
 <p align="center"><a href="https://github.com/JujuAdams/DoLater/releases/tag/1.2.0">Download the .yymps here</a></p>
 
+<p align="center">Chat about DoLater on the <a href="https://discord.gg/8krYCqr">Discord server</a></p>
+
 &nbsp;
 
 DoLater is a small library to make it easier to execute code after a certain amount of time has passed, a trigger condition has been met, or an async event has fired. Traditionally these tasks have required a lot of boilerplate code but, thanks to GMS2.3.0's new GML features, it's easier than ever to keep code clean and organised.
