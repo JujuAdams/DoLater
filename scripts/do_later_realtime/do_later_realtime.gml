@@ -4,12 +4,12 @@
 /// This will cause the operation to be executed every n-milliseconds continuously
 ///
 /// @return A struct that represents the created and queued operation
-
 /// @param msDelay    Milliseconds to wait before executing the function. Values equal to or less than zero cause the function to be executed immediately
-/// @param function   Function to execute. This function is rebound to the provided scope
+/// @param function   Function to execute/method
+
 function do_later_realtime(_delay, _callback)
 {
-    return do_later_realtime_ext(_delay, _callback, self);
+    return do_later_realtime_ext(_delay, _callback, -1);
 }
 
 /// @param delay             Milliseconds to wait before executing the function. Values equal to or less than zero cause the function to be executed immediately

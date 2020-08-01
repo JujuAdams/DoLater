@@ -5,11 +5,11 @@
 ///
 /// @return A struct that represents the created and queued operation
 /// @param frameDelay   Time to wait before executing the function, in frames. Values equal to or less than zero cause the function to be executed immediately
-/// @param function     Function to execute. This function is rebound to the provided scope
+/// @param function     Function/method to execute
 
 function do_later(_delay, _callback)
 {
-    return do_later_ext(_delay, _callback, self);
+    return do_later_ext(_delay, _callback, -1);
 }
 
 /// @param delay             Time to wait before executing the function, in frames. Values equal to or less than zero cause the function to be executed immediately

@@ -10,7 +10,7 @@
 /// @return A struct that represents the created and queued operation
 /// @param eventCode   Async event to target. Use values from the DO_LATER_EVENT enum
 /// @param timeout     Milliseconds to wait before declaring the operation as timed-out
-/// @param function    Function to execute. This function is rebound to the provided scope
+/// @param function    Function/method to execute
 
 enum DO_LATER_EVENT
 {
@@ -31,7 +31,7 @@ enum DO_LATER_EVENT
 
 function do_later_async(_event_code, _timeout, _callback)
 {
-    return do_later_async_ext(_event_code, _timeout, _callback, self);
+    return do_later_async_ext(_event_code, _timeout, _callback, -1);
 }
 
 /// @param eventCode         Async event to target. Use values from the DO_LATER_EVENT enum

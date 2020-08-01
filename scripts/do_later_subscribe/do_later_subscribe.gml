@@ -6,11 +6,11 @@
 ///
 /// @return A struct that represents the created and queued operation
 /// @param signal     Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
-/// @param function   Function to execute. This function is rebound to the provided scope
+/// @param function   Function/method to execute
 
 function do_later_subscribe(_signal, _callback)
 {
-    return do_later_subscribe_ext(_signal, _callback, self);
+    return do_later_subscribe_ext(_signal, _callback, -1);
 }
 
 /// @param signal            Signal to listen for. This can be any datatype, but is typically a string or an enum/macro

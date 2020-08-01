@@ -5,11 +5,11 @@
 ///
 /// @return A struct that represents the created and queued operation
 /// @param triggerFunction    Trigger function to execute. When this function returns <true>, the callback function is executed. This function is rebound to the provided scope
-/// @param callbackFunction   Function to execute. This function is rebound to the provided scope
+/// @param callbackFunction   Function/method to execute
 
 function do_later_trigger(_trigger_function, _callback_function)
 {
-    return do_later_trigger_ext(_trigger_function, _callback_function, self, self);
+    return do_later_trigger_ext(_trigger_function, _callback_function, -1, -1);
 }
 
 /// @param triggerFunction    Trigger function to execute. When this function returns <true>, the callback function is executed. This function is rebound to the provided scope
