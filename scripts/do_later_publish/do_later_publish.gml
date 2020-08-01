@@ -17,9 +17,9 @@ function do_later_publish()
         {
             with(_list[| _i])
             {
+                //If the instance that the function is scoped to has been destroyed, delete this operation
                 var _callback_self = method_get_self(callback);
-                if (DO_LATER_IGNORE_DESTROYED_INSTANCES
-                && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+                if (DO_LATER_IGNORE_DESTROYED_INSTANCES && !is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id))
                 {
                     deleted = true;
                 }
@@ -30,18 +30,15 @@ function do_later_publish()
                 }
                 else
                 {
-                    var _maintain = callback(_callback_parameter);
-                    
-                    if (!deleted)
+                    var _result = callback(_callback_parameter); //Execute the callback. If it returns <false>, remove the operation from the list
+                    if (!_result && !deleted)
                     {
-                        if (!_maintain)
-                        {
-                            ds_list_delete(_list, _i);
-                        }
-                        else
-                        {
-                            _i++;
-                        }
+                        deleted = true;
+                        ds_list_delete(_list, _i);
+                    }
+                    else
+                    {
+                        _i++;
                     }
                 }
             }

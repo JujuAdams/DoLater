@@ -19,7 +19,12 @@ function do_later_async_event_receiver()
         {
             //If the instance that the function is scoped to has been destroyed, delete this operation
             var _callback_self = method_get_self(callback);
-            if (DO_LATER_IGNORE_DESTROYED_INSTANCES && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+            if (DO_LATER_IGNORE_DESTROYED_INSTANCES && !is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id))
+            {
+                deleted = true;
+            }
+            
+            if (deleted)
             {
                 ds_list_delete(global.__do_later_list, _i);
             }
@@ -27,13 +32,18 @@ function do_later_async_event_receiver()
             {
                 _i++;
             }
-            else if (callback()) //Execute the callback. If it returns <true>, remove the operation from the list
-            {
-                ds_list_delete(global.__do_later_async_list, _i);
-            }
             else
             {
-                _i++;
+                var _result = callback(); //Execute the callback. If it returns <true>, remove the operation from the list
+                if (!_result && !deleted)
+                {
+                    deleted = true;
+                    ds_list_delete(global.__do_later_async_list, _i);
+                }
+                else
+                {
+                    _i++;
+                }
             }
         }
     }

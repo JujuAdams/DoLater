@@ -12,6 +12,7 @@ function do_later_realtime(_delay, _callback)
     return do_later_realtime_ext(_delay, _callback, -1);
 }
 
+/// @return A struct that represents the created and queued operation
 /// @param delay             Milliseconds to wait before executing the function. Values equal to or less than zero cause the function to be executed immediately
 /// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
 /// @param function          Function to execute. This function is rebound to the provided scope

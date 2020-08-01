@@ -1,11 +1,10 @@
 /// Defines a function for execution when an async event of a specific type is received
-/// do_later_async_event_receiver() must be called somewhere for operations created with do_later_async() to be executed
+/// do_later_async_event_receiver() must be called in the required async event for operations created with do_later_async() to be executed
 /// 
-/// The function passed into do_later_async() should take one argument. This argument will set to <false> if the function is executed from an async event. If this argument is <true> then the async operation has timed out
-/// When an operation times out, <async_load> will *not* be available. Ensure you're not reading <async_load> before handling timeout behaviour
-/// 
-/// N.B. If the defined function returns <true> then the operation will be removed from Do Later's system. This is the opposite of other Do Later functions!
-/// Make sure you return <true> where appropriate or you'll receive erroneous timeouts. Additionally, timed-out operations are always destroyed whether the callback function returns <true> or not
+/// The function passed into do_later_async() should read DO_LATER_ASYNC_LOAD instead of GM's native async_load
+/// This function is also called if and when the operation times out. Check DO_LATER_ASYNC_TIMED_OUT to determine if the operation has timed out
+/// The function should also return <true> if the operation should be deleted from Do Later's list of pending async operations
+/// Make sure that the function returns <true> when an operation has completed otherwise you'll receive erroneous timeouts
 ///
 /// @return A struct that represents the created and queued operation
 /// @param eventCode   Async event to target. Use values from the DO_LATER_EVENT enum
@@ -34,6 +33,7 @@ function do_later_async(_event_code, _timeout, _callback)
     return do_later_async_ext(_event_code, _timeout, _callback, -1);
 }
 
+/// @return A struct that represents the created and queued operation
 /// @param eventCode         Async event to target. Use values from the DO_LATER_EVENT enum
 /// @param timeout           Milliseconds to wait before declaring the operation as timed-out
 /// @param function          Function to execute. This function is rebound to the provided scope

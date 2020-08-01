@@ -16,9 +16,9 @@ function do_later_system_tick()
         {
             with(global.__do_later_list[| _i])
             {
+                //If the instance that the function is scoped to has been destroyed, delete this operation
                 var _callback_self = method_get_self(callback);
-                if (DO_LATER_IGNORE_DESTROYED_INSTANCES
-                && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+                if (DO_LATER_IGNORE_DESTROYED_INSTANCES && !is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id))
                 {
                     deleted = true;
                 }
@@ -32,20 +32,16 @@ function do_later_system_tick()
                     ticks++;
                     if (ticks >= delay)
                     {
-                        var _maintain = callback();
-                        
-                        if (!deleted)
+                        var _result = callback(); //Execute the callback. If it returns <false>, remove the operation from the list
+                        if (!_result && !deleted)
                         {
-                            if (!_maintain)
-                            {
-                                deleted = true;
-                                ds_list_delete(global.__do_later_list, _i);
-                            }
-                            else
-                            {
-                                ticks -= delay;
-                                _i++;
-                            }
+                            deleted = true;
+                            ds_list_delete(global.__do_later_list, _i);
+                        }
+                        else
+                        {
+                            ticks -= delay;
+                            _i++;
                         }
                     }
                     else
@@ -62,9 +58,9 @@ function do_later_system_tick()
         {
             with(global.__do_later_realtime_list[| _i])
             {
+                //If the instance that the function is scoped to has been destroyed, delete this operation
                 var _callback_self = method_get_self(callback);
-                if (DO_LATER_IGNORE_DESTROYED_INSTANCES
-                && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+                if (DO_LATER_IGNORE_DESTROYED_INSTANCES && !is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id))
                 {
                     deleted = true;
                 }
@@ -77,20 +73,16 @@ function do_later_system_tick()
                 {
                     if (current_time - start_time >= delay)
                     {
-                        var _maintain = callback();
-                        
-                        if (!deleted)
+                        var _result = callback(); //Execute the callback. If it returns <false>, remove the operation from the list
+                        if (!_result && !deleted)
                         {
-                            if (!_maintain)
-                            {
-                                deleted = true;
-                                ds_list_delete(global.__do_later_realtime_list, _i);
-                            }
-                            else
-                            {
-                                start_time += delay;
-                                _i++;
-                            }
+                            deleted = true;
+                            ds_list_delete(global.__do_later_realtime_list, _i);
+                        }
+                        else
+                        {
+                            start_time += delay;
+                            _i++;
                         }
                     }
                     else
@@ -109,9 +101,11 @@ function do_later_system_tick()
             {
                 var _trigger_self  = method_get_self(trigger );
                 var _callback_self = method_get_self(callback);
+                
+                //If either instance scoped to our functions has been destroyed, delete this operation
                 if (DO_LATER_IGNORE_DESTROYED_INSTANCES
-                && (!is_struct(_trigger_self ) && !is_undefined(_trigger_self ) && !instance_exists(_trigger_self.id ))
-                && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+                && ((!is_struct(_trigger_self ) && !is_undefined(_trigger_self ) && !instance_exists(_trigger_self.id ))
+                ||  (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id))))
                 {
                     deleted = true;
                 }
@@ -124,19 +118,15 @@ function do_later_system_tick()
                 {
                     if (trigger())
                     {
-                        var _maintain = callback();
-                        
-                        if (!deleted)
+                        var _result = callback(); //Execute the callback. If it returns <false>, remove the operation from the list
+                        if (!_result && !deleted)
                         {
-                            if (!_maintain)
-                            {
-                                deleted = true;
-                                ds_list_delete(global.__do_later_trigger_list, _i);
-                            }
-                            else
-                            {
-                                _i++;
-                            }
+                            deleted = true;
+                            ds_list_delete(global.__do_later_trigger_list, _i);
+                        }
+                        else
+                        {
+                            _i++;
                         }
                     }
                     else
@@ -157,7 +147,12 @@ function do_later_system_tick()
             {
                 //If the instance that the function is scoped to has been destroyed, delete this operation
                 var _callback_self = method_get_self(callback);
-                if (DO_LATER_IGNORE_DESTROYED_INSTANCES && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+                if (DO_LATER_IGNORE_DESTROYED_INSTANCES && !is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id))
+                {
+                    deleted = true;
+                }
+                
+                if (deleted)
                 {
                     ds_list_delete(global.__do_later_async_list, _i);
                 }
@@ -165,7 +160,12 @@ function do_later_system_tick()
                 {
                     //Execute the callback and remove the reference from the async operation list
                     callback();
-                    ds_list_delete(global.__do_later_async_list, _i);
+                    
+                    if (!deleted)
+                    {
+                        deleted = true;
+                        ds_list_delete(global.__do_later_async_list, _i);
+                    }
                 }
                 else
                 {
@@ -187,11 +187,11 @@ function do_later_system_tick()
 
 show_debug_message("Do Later: " + __DO_LATER_VERSION + " @jujuadams " + __DO_LATER_DATE);
 
-global.__do_later_list          = ds_list_create();
-global.__do_later_realtime_list = ds_list_create();
-global.__do_later_trigger_list  = ds_list_create();
-global.__do_later_signal_map    = ds_map_create();
-global.__do_later_async_list    = ds_list_create();
-global.__do_later_last_tick     = -1;
-global.__do_later_async_timed_out       = undefined;
-global.__do_later_async_load    = ds_map_create();
+global.__do_later_list            = ds_list_create();
+global.__do_later_realtime_list   = ds_list_create();
+global.__do_later_trigger_list    = ds_list_create();
+global.__do_later_signal_map      = ds_map_create();
+global.__do_later_async_list      = ds_list_create();
+global.__do_later_last_tick       = -1;
+global.__do_later_async_timed_out = undefined;
+global.__do_later_async_load      = ds_map_create();
