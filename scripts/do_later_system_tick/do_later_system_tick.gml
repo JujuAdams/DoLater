@@ -148,48 +148,42 @@ function do_later_system_tick()
         }
         
         //Check for async operations timing out
+        DO_LATER_ASYNC_TIMED_OUT = true;
+        
         var _i = 0;
         repeat(ds_list_size(global.__do_later_async_list))
         {
             with(global.__do_later_async_list[| _i])
             {
+                //If the instance that the function is scoped to has been destroyed, delete this operation
                 var _callback_self = method_get_self(callback);
-                if (DO_LATER_IGNORE_DESTROYED_INSTANCES
-                && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
+                if (DO_LATER_IGNORE_DESTROYED_INSTANCES && (!is_struct(_callback_self) && !is_undefined(_callback_self) && !instance_exists(_callback_self.id)))
                 {
-                    deleted = true;
+                    ds_list_delete(global.__do_later_async_list, _i);
                 }
-                
-                if (deleted)
+                else if (current_time - start_time >= timeout) //If this operation has timed out
                 {
+                    //Execute the callback and remove the reference from the async operation list
+                    callback();
                     ds_list_delete(global.__do_later_async_list, _i);
                 }
                 else
                 {
-                    if (current_time - start_time >= timeout)
-                    {
-                        //Execute the callback, but with argument0 set <true> to indicate the operation has timed out
-                        callback(true);
-                        
-                        if (!deleted)
-                        {
-                            deleted = true;
-                            ds_list_delete(global.__do_later_async_list, _i);
-                        }
-                    }
-                    else
-                    {
-                        _i++;
-                    }
+                    _i++;
                 }
             }
         }
+        
+        //Reset the timeout state
+        DO_LATER_ASYNC_TIMED_OUT = undefined;
     }
 }
 
 #macro __DO_LATER_VERSION            "3.0.0"
 #macro __DO_LATER_DATE               "2020/08/01"
 #macro __DO_LATER_APPROX_FRAME_TIME  floor(game_get_speed(gamespeed_microseconds)/1000)
+#macro DO_LATER_ASYNC_TIMED_OUT      global.__do_later_async_timed_out
+#macro DO_LATER_ASYNC_LOAD           global.__do_later_async_load
 
 show_debug_message("Do Later: " + __DO_LATER_VERSION + " @jujuadams " + __DO_LATER_DATE);
 
@@ -199,3 +193,5 @@ global.__do_later_trigger_list  = ds_list_create();
 global.__do_later_signal_map    = ds_map_create();
 global.__do_later_async_list    = ds_list_create();
 global.__do_later_last_tick     = -1;
+global.__do_later_async_timed_out       = undefined;
+global.__do_later_async_load    = ds_map_create();

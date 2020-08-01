@@ -24,20 +24,19 @@ do_later_subscribe("announce",
                        return true; //Keep this subscriber alive forever
                    });
 
-var _id = http_get("http://www.google.com/");
-with({ async_id : _id })
+with({ async_id : http_get("http://www.google.com/") })
 {
-    do_later_async(DO_LATER_EVENT.HTTP,
-                   5000,
-                   function(_timeout) {
-                       if (_timeout)
+    do_later_async(DO_LATER_EVENT.HTTP, 5000,
+                   function() {
+                       if (DO_LATER_ASYNC_TIMED_OUT)
                        {
                            show_message("HTTP request timed out");
                        }
-                       else if ((async_load[? "id"] == async_id) && (async_load[? "status"] == 0))
+                       
+                       if ((DO_LATER_ASYNC_LOAD[? "id"] == async_id) && (DO_LATER_ASYNC_LOAD[? "status"] == 0))
                        {
                            show_message("Got an HTTP response ;)");
-                           //return true;
+                           return true;
                        }
                    });
 }
