@@ -1,11 +1,14 @@
 /// Broadcast a signal that executes matching operations defined with do_later_subscribe()
 ///
-/// @return N/A (0)
-/// @param signal              Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
-/// @param callbackParameter   Additional data to call into the subscriber's function (as argument0)
+/// @return N/A (undefined)
+/// @param signal                Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
+/// @param [callbackParameter]   Additional data to call into the subscriber's function (as argument0)
 
-function do_later_publish(_signal, _callback_parameter)
+function do_later_publish()
 {
+    var _signal             = argument[0];
+    var _callback_parameter = (argument[1] != undefined)? argument[1] : undefined;
+    
     var _list = global.__do_later_signal_map[? _signal];
     if (_list != undefined)
     {
@@ -53,9 +56,12 @@ function do_later_publish(_signal, _callback_parameter)
     }
 }
 
-/// @param signal              Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
-/// @param callbackParameter   Additional data to call into the subscriber's function (as argument0)
-function do_later_pub(_signal, _callback_parameter)
+/// @param signal                Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
+/// @param [callbackParameter]   Additional data to call into the subscriber's function (as argument0)
+function do_later_pub()
 {
+    var _signal             = argument[0];
+    var _callback_parameter = (argument[1] != undefined)? argument[1] : undefined;
+    
     return do_later_publish(_signal, _callback_parameter);
 }

@@ -8,10 +8,9 @@
 /// Make sure you return <true> where appropriate or you'll receive erroneous timeouts. Additionally, timed-out operations are always destroyed whether the callback function returns <true> or not
 ///
 /// @return A struct that represents the created and queued operation
-/// @param eventCode         Async event to target. Use values from the DO_LATER_EVENT enum
-/// @param timeout           Milliseconds to wait before declaring the operation as timed-out
-/// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
-/// @param function          Function to execute. This function is rebound to the provided scope
+/// @param eventCode   Async event to target. Use values from the DO_LATER_EVENT enum
+/// @param timeout     Milliseconds to wait before declaring the operation as timed-out
+/// @param function    Function to execute. This function is rebound to the provided scope
 
 enum DO_LATER_EVENT
 {
@@ -30,7 +29,16 @@ enum DO_LATER_EVENT
     SYSTEM             //System             ev_system_event
 }
 
-function do_later_async(_event_code, _timeout, _scope, _callback)
+function do_later_async(_event_code, _timeout, _callback)
+{
+    return do_later_async_ext(_event_code, _timeout, _callback, self);
+}
+
+/// @param eventCode         Async event to target. Use values from the DO_LATER_EVENT enum
+/// @param timeout           Milliseconds to wait before declaring the operation as timed-out
+/// @param function          Function to execute. This function is rebound to the provided scope
+/// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
+function do_later_async_ext(_event_code, _timeout, _callback, _scope)
 {
     if (!is_numeric(_scope) || (_scope >= 0)) _callback = method(_scope, _callback);
     

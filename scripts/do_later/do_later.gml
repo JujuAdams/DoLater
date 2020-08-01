@@ -4,11 +4,18 @@
 /// This will cause the operation to be executed every n-frames continuously
 ///
 /// @return A struct that represents the created and queued operation
-/// @param delay             Time to wait before executing the function, in frames. Values equal to or less than zero cause the function to be executed immediately
-/// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
-/// @param function          Function to execute. This function is rebound to the provided scope
+/// @param frameDelay   Time to wait before executing the function, in frames. Values equal to or less than zero cause the function to be executed immediately
+/// @param function     Function to execute. This function is rebound to the provided scope
 
-function do_later(_delay, _scope, _callback)
+function do_later(_delay, _callback)
+{
+    return do_later_ext(_delay, _callback, self);
+}
+
+/// @param delay             Time to wait before executing the function, in frames. Values equal to or less than zero cause the function to be executed immediately
+/// @param function          Function to execute. This function is rebound to the provided scope
+/// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
+function do_later_ext(_delay, _callback, _scope)
 {
     if (!is_numeric(_scope) || (_scope >= 0)) _callback = method(_scope, _callback);
     

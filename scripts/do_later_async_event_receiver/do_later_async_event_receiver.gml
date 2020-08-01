@@ -1,7 +1,7 @@
 /// Calls any suitable function defined by do_later_async()
 /// This function should be called in all relevant async events by an instance (typically a persistent instance)
 ///
-/// @return N/A (0)
+/// @return N/A (undefined)
 
 function do_later_async_event_receiver()
 {

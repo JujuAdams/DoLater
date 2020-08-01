@@ -1,7 +1,7 @@
 /// Updates Do Later's internal systems, executing any appropriate functions
 /// This function should be called one per frame in an instance (typically a persistent instance)
 ///
-/// @return N/A (0)
+/// @return N/A (undefined)
 
 function do_later_system_tick()
 {

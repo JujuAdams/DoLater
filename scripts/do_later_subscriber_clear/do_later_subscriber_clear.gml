@@ -1,6 +1,6 @@
 /// Destroy all operations that are subscribed to the given signal
 ///
-/// @return N/A (0)
+/// @return N/A (undefined)
 /// @param signal   Signal to clear out. This can be any datatype, but is typically a string or an enum/macro
 
 function do_later_subscriber_clear(_signal)

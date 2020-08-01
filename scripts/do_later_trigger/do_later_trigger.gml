@@ -4,12 +4,19 @@
 /// This will cause the operation to be evaluated continuously
 ///
 /// @return A struct that represents the created and queued operation
-/// @param triggerScope       Scope to execute the trigger function in, which can be an instance or a struct. If triggerScope is a numeric value less than 0 then the trigger function will not be re-scoped
 /// @param triggerFunction    Trigger function to execute. When this function returns <true>, the callback function is executed. This function is rebound to the provided scope
-/// @param callbackScope      Scope to execute the callback function in, which can be an instance or a struct. If callbackScope is a numeric value less than 0 then the callback function will not be re-scoped
 /// @param callbackFunction   Function to execute. This function is rebound to the provided scope
 
-function do_later_trigger(_trigger_scope, _trigger_function, _callback_scope, _callback_function)
+function do_later_trigger(_trigger_function, _callback_function)
+{
+    return do_later_trigger_ext(_trigger_function, _callback_function, self, self);
+}
+
+/// @param triggerFunction    Trigger function to execute. When this function returns <true>, the callback function is executed. This function is rebound to the provided scope
+/// @param callbackFunction   Function to execute. This function is rebound to the provided scope
+/// @param triggerScope       Scope to execute the trigger function in, which can be an instance or a struct. If triggerScope is a numeric value less than 0 then the trigger function will not be re-scoped
+/// @param callbackScope      Scope to execute the callback function in, which can be an instance or a struct. If callbackScope is a numeric value less than 0 then the callback function will not be re-scoped
+function do_later_trigger_ext(_trigger_function, _callback_function, _trigger_scope, _callback_scope)
 {
     if (!is_numeric(_trigger_scope ) || (_trigger_scope  >= 0)) _trigger_function  = method(_trigger_scope , _trigger_function );
     if (!is_numeric(_callback_scope) || (_callback_scope >= 0)) _callback_function = method(_callback_scope, _callback_function);

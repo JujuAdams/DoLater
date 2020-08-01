@@ -5,11 +5,18 @@
 /// This will cause the operation to be executed every time the signal is emitted by do_later_publish() (rather than just the first time)
 ///
 /// @return A struct that represents the created and queued operation
-/// @param signal            Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
-/// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
-/// @param function          Function to execute. This function is rebound to the provided scope
+/// @param signal     Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
+/// @param function   Function to execute. This function is rebound to the provided scope
 
-function do_later_subscribe(_signal, _scope, _callback)
+function do_later_subscribe(_signal, _callback)
+{
+    return do_later_subscribe_ext(_signal, _callback, self);
+}
+
+/// @param signal            Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
+/// @param function          Function to execute. This function is rebound to the provided scope
+/// @param struct/instance   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
+function do_later_subscribe_ext(_signal, _callback, _scope)
 {
     if (!is_numeric(_scope) || (_scope >= 0)) _callback = method(_scope, _callback);
     
@@ -32,8 +39,7 @@ function do_later_subscribe(_signal, _scope, _callback)
 
 /// @param signal     Signal to listen for. This can be any datatype, but is typically a string or an enum/macro
 /// @param function   Scope to execute the function in, which can be an instance or a struct. If scope is a numeric value less than 0 then the function will not be re-scoped
-/// @param scope      Function to execute. This function is rebound to the provided scope
-function do_later_sub(_signal, _callback, _scope)
+function do_later_sub(_signal, _callback)
 {
-    return do_later_subscribe(_signal, _callback, _scope);
+    return do_later_subscribe(_signal, _callback);
 }

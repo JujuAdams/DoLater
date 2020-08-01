@@ -1,6 +1,6 @@
 /// Destroys a Do Later operation, preventing it from ever firing
 /// 
-/// @return N/A (0)
+/// @return N/A (undefined)
 /// @param operationStruct   Operation to delete, as returned by a Do Later function
 
 function do_later_delete(_struct)
