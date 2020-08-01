@@ -187,8 +187,8 @@ function do_later_system_tick()
     }
 }
 
-#macro __DO_LATER_VERSION            "2.0.0"
-#macro __DO_LATER_DATE               "2020/06/25"
+#macro __DO_LATER_VERSION            "3.0.0"
+#macro __DO_LATER_DATE               "2020/08/01"
 #macro __DO_LATER_APPROX_FRAME_TIME  floor(game_get_speed(gamespeed_microseconds)/1000)
 
 show_debug_message("Do Later: " + __DO_LATER_VERSION + " @jujuadams " + __DO_LATER_DATE);
