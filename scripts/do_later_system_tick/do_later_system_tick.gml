@@ -179,7 +179,7 @@ function do_later_system_tick()
     }
 }
 
-#macro __DO_LATER_VERSION            "3.0.0"
+#macro __DO_LATER_VERSION            "3.0.1"
 #macro __DO_LATER_DATE               "2020/08/01"
 #macro __DO_LATER_APPROX_FRAME_TIME  floor(game_get_speed(gamespeed_microseconds)/1000)
 #macro DO_LATER_ASYNC_TIMED_OUT      global.__do_later_async_timed_out
