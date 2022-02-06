@@ -1,11 +1,6 @@
-<p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/DoLater/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
-<h1 align="center">1.2.0</h1>
+## This library is no longer supported or maintained, and has been superceded by [Coroutines](https://github.com/JujuAdams/Coroutines)
 
-<p align="center">Deferred code execution for GameMaker Studio 2.3.0</p>
-
-<p align="center"><a href="https://github.com/JujuAdams/DoLater/releases/tag/1.2.0">Download the .yymps here</a></p>
-
-<p align="center">Chat about DoLater on the <a href="https://discord.gg/8krYCqr">Discord server</a></p>
+-----
 
 &nbsp;
 
