@@ -1,1 +1,0 @@
-#macro DO_LATER_IGNORE_DESTROYED_INSTANCES  true  //Set to <false> if you want to allow destroyed instances to execute functions

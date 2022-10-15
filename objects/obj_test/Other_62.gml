@@ -1,1 +1,0 @@
-do_later_async_event_receiver();
