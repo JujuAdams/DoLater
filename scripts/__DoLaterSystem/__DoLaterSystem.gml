@@ -1,4 +1,4 @@
-#macro __DO_LATER_VERSION  "2.0.0"
+#macro __DO_LATER_VERSION  "4.0.0"
 #macro __DO_LATER_DATE     "2022-10-15"
 
 global.__doLaterArray = [];
