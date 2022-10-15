@@ -3,7 +3,7 @@
 /// @param argument
 /// @param ...
 
-function DoLater()
+function DoLaterLoop()
 {
     var _frames   = argument[0];
     var _function = argument[1];
@@ -16,7 +16,7 @@ function DoLater()
         ++_i;
     }
     
-    var _ts = time_source_create(global.__doLaterParent, _frames, time_source_units_frames, _function, _arguments);
+    var _ts = time_source_create(global.__doLaterParent, _frames, time_source_units_frames, _function, _arguments, -1);
     time_source_start(_ts);
     array_push(global.__doLaterArray, _ts);
     

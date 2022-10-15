@@ -1,12 +1,12 @@
-/// @param frames
+/// @param milliseconds
 /// @param function
 /// @param argument
 /// @param ...
 
-function DoLater()
+function DoLaterMs()
 {
-    var _frames   = argument[0];
-    var _function = argument[1];
+    var _milliseconds = argument[0];
+    var _function     = argument[1];
     
     var _arguments = array_create(argument_count-2);
     var _i = 0;
@@ -16,7 +16,7 @@ function DoLater()
         ++_i;
     }
     
-    var _ts = time_source_create(global.__doLaterParent, _frames, time_source_units_frames, _function, _arguments);
+    var _ts = time_source_create(global.__doLaterParent, _milliseconds/1000, time_source_units_seconds, _function, _arguments);
     time_source_start(_ts);
     array_push(global.__doLaterArray, _ts);
     

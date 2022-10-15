@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "DoLater",
+  "name": "DoLaterGetParent",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
