@@ -1,3 +1,5 @@
+// Feather disable all
+
 /// @param milliseconds
 /// @param function
 /// @param argument
