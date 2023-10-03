@@ -7,6 +7,8 @@
 
 function DoLater()
 {
+    static _global = __DoLaterInitialize();
+    
     var _frames   = argument[0];
     var _function = argument[1];
     
@@ -18,9 +20,9 @@ function DoLater()
         ++_i;
     }
     
-    var _ts = time_source_create(global.__doLaterParent, _frames, time_source_units_frames, _function, _arguments);
+    var _ts = time_source_create(_global.__parent, _frames, time_source_units_frames, _function, _arguments);
     time_source_start(_ts);
-    array_push(global.__doLaterArray, _ts);
+    array_push(_global.__array, _ts);
     
     return _ts;
 }

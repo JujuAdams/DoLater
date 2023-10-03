@@ -1,9 +1,9 @@
 <p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/DoLater/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
-<h1 align="center">DoLater 4.0.0</h1>
+<h1 align="center">DoLater 4.1.0</h1>
 
-<p align="center">Better <code>call_later()</code> code execution for GameMaker Studio 2022.9 by <a href="https://www.jujuadams.com/" target="_blank">Juju Adams</a></p>
+<p align="center">Better <code>call_later()</code> code execution for GameMaker 2022 LTS by <a href="https://www.jujuadams.com/" target="_blank">Juju Adams</a></p>
 
-<p align="center"><a href="https://github.com/JujuAdams/DoLater/releases/tag/4.0.0">Download the .yymps here</a></p>
+<p align="center"><a href="https://github.com/JujuAdams/DoLater/releases/">Download the .yymps here</a></p>
 
 &nbsp;
 

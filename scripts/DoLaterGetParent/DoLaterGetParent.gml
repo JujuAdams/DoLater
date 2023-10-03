@@ -2,5 +2,7 @@
 
 function DoLaterGetParent()
 {
-    return global.__doLaterParent;
+    static _global = __DoLaterInitialize();
+    
+    return _global.__parent;
 }

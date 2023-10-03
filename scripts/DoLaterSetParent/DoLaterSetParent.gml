@@ -4,5 +4,7 @@
 
 function DoLaterSetParent(_parent)
 {
-    global.__doLaterParent = _parent;
+    static _global = __DoLaterInitialize();
+    
+    _global.__parent = _parent;
 }
