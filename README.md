@@ -1,9 +1,14 @@
 <p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/DoLater/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
 <h1 align="center">DoLater 4.1.0</h1>
-
 <p align="center">Better <code>call_later()</code> code execution for GameMaker 2022 LTS</p>
 
-<p align="center"><a href="https://github.com/JujuAdams/DoLater/releases/">Download the .yymps here</a></p>
+&nbsp;
+
+&nbsp;
+
+- ### Got questions? [Make a new issue!](https://github.com/JujuAdams/DoLater/issues/new)
+- ### There is also a [Discord server](https://discord.gg/hwgWpnsNw2) (but GitHub issues are preferred)
+- ### [Download the .yymps](https://github.com/JujuAdams/DoLater/releases/)
 
 &nbsp;
 
