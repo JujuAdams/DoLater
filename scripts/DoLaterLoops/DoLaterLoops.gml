@@ -1,0 +1,30 @@
+// Feather disable all
+
+/// @param frames
+/// @param loopCount
+/// @param function
+/// @param argument
+/// @param ...
+
+function DoLaterLoops()
+{
+    static _system = __DoLaterSystem();
+    
+    var _frames    = argument[0];
+    var _loopCount = argument[1];
+    var _function  = argument[2];
+    
+    var _arguments = array_create(argument_count-2);
+    var _i = 0;
+    repeat(argument_count-2)
+    {
+        _arguments[@ _i] = argument[_i+2];
+        ++_i;
+    }
+    
+    var _ts = time_source_create(_system.__parent, _frames, time_source_units_frames, _function, _arguments, _loopCount);
+    time_source_start(_ts);
+    array_push(_system.__array, _ts);
+    
+    return _ts;
+}
