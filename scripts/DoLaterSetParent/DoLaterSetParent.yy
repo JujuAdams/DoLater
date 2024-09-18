@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "API",
-    "path": "folders/DoLater/API.yy",
+    "name": "Parents",
+    "path": "folders/DoLater/Parents.yy",
   },
 }

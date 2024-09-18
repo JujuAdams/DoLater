@@ -6,7 +6,7 @@
 /// @param argument
 /// @param ...
 
-function DoLaterMsLoop()
+function DoLaterMsLoops()
 {
     static _system = __DoLaterSystem();
     
