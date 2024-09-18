@@ -3,6 +3,9 @@
 /// Creates a one-shot time source that executes a function after a certain number of frames. The
 /// time source's parent will be `DO_LATER_DEFAULT_PARENT` unless overriden by `DoLaterSetParent()`.
 /// 
+/// N.B. DoLater presumes that if you manually stop a time source by calling `time_source_stop()`
+///      you are not going to restart it.
+/// 
 /// @param frames
 /// @param function
 /// @param argument
