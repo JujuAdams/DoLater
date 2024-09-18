@@ -2,7 +2,7 @@
 
 function DoLaterGetParent()
 {
-    static _global = __DoLaterInitialize();
+    static _system = __DoLaterSystem();
     
-    return _global.__parent;
+    return _system.__parent;
 }

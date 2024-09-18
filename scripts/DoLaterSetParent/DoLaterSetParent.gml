@@ -4,7 +4,7 @@
 
 function DoLaterSetParent(_parent)
 {
-    static _global = __DoLaterInitialize();
+    static _system = __DoLaterSystem();
     
-    _global.__parent = _parent;
+    _system.__parent = _parent;
 }

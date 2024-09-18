@@ -2,7 +2,7 @@
 
 function DoLaterResetParent()
 {
-    static _global = __DoLaterInitialize();
+    static _system = __DoLaterSystem();
     
     DoLaterSetParent(DO_LATER_DEFAULT_PARENT);
 }

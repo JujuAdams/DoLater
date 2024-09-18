@@ -3,15 +3,15 @@
   "resourceVersion": "1.6",
   "name": "DoLater",
   "resources": [
-    {"id":{"name":"DoLaterResetParent","path":"scripts/DoLaterResetParent/DoLaterResetParent.yy",},"order":6,},
+    {"id":{"name":"DoLaterResetParent","path":"scripts/DoLaterResetParent/DoLaterResetParent.yy",},"order":8,},
     {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},"order":2,},
-    {"id":{"name":"__DoLaterSystem","path":"scripts/__DoLaterSystem/__DoLaterSystem.yy",},"order":0,},
+    {"id":{"name":"__DoLaterConstants","path":"scripts/__DoLaterConstants/__DoLaterConstants.yy",},"order":1,},
     {"id":{"name":"__DoLaterConfig","path":"scripts/__DoLaterConfig/__DoLaterConfig.yy",},"order":0,},
     {"id":{"name":"DoLaterLoop","path":"scripts/DoLaterLoop/DoLaterLoop.yy",},"order":2,},
     {"id":{"name":"DoLaterMsLoop","path":"scripts/DoLaterMsLoop/DoLaterMsLoop.yy",},"order":3,},
-    {"id":{"name":"DoLaterSetParent","path":"scripts/DoLaterSetParent/DoLaterSetParent.yy",},"order":4,},
+    {"id":{"name":"DoLaterSetParent","path":"scripts/DoLaterSetParent/DoLaterSetParent.yy",},"order":6,},
     {"id":{"name":"DoLaterMs","path":"scripts/DoLaterMs/DoLaterMs.yy",},"order":1,},
-    {"id":{"name":"DoLaterGetParent","path":"scripts/DoLaterGetParent/DoLaterGetParent.yy",},"order":5,},
+    {"id":{"name":"DoLaterGetParent","path":"scripts/DoLaterGetParent/DoLaterGetParent.yy",},"order":7,},
     {"id":{"name":"DoLater","path":"scripts/DoLater/DoLater.yy",},"order":0,},
     {"id":{"name":"__DoLaterInitialize","path":"scripts/__DoLaterInitialize/__DoLaterInitialize.yy",},"order":1,},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":1,},
@@ -43,8 +43,8 @@
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"DoLater","folderPath":"folders/DoLater.yy","order":0,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"API","folderPath":"folders/DoLater/API.yy","order":1,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"(System)","folderPath":"folders/DoLater/(System).yy","order":10,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"(System)","folderPath":"folders/DoLater/(System).yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"API","folderPath":"folders/DoLater/API.yy","order":2,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
@@ -54,6 +54,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.0.1.31",
+    "IDEVersion": "2022.0.2.51",
   },
 }
