@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"DoLaterCreateParent","path":"scripts/DoLaterCreateParent/DoLaterCreateParent.yy",},"order":0,},
     {"id":{"name":"DoLaterResetParent","path":"scripts/DoLaterResetParent/DoLaterResetParent.yy",},"order":3,},
+    {"id":{"name":"DoLaterStopChildren","path":"scripts/DoLaterStopChildren/DoLaterStopChildren.yy",},"order":4,},
     {"id":{"name":"DoLaterMsLoops","path":"scripts/DoLaterMsLoops/DoLaterMsLoops.yy",},"order":5,},
     {"id":{"name":"DoLaterLoops","path":"scripts/DoLaterLoops/DoLaterLoops.yy",},"order":4,},
     {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},"order":2,},
