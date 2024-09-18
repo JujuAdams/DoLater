@@ -1,7 +1,7 @@
 // Feather disable all
 
 /// Stops all child time sources for a parent time source. This will not stop the parent time
-/// source so is useful for reseting scheduled function execution e.g. when changing rooms.
+/// source itself so is useful for reseting scheduled function execution e.g. when changing rooms.
 /// 
 /// @param parent
 
