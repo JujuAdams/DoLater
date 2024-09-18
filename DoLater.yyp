@@ -16,7 +16,7 @@
     {"id":{"name":"DoLaterMs","path":"scripts/DoLaterMs/DoLaterMs.yy",},"order":1,},
     {"id":{"name":"DoLaterGetParent","path":"scripts/DoLaterGetParent/DoLaterGetParent.yy",},"order":2,},
     {"id":{"name":"DoLater","path":"scripts/DoLater/DoLater.yy",},"order":0,},
-    {"id":{"name":"__DoLaterInitialize","path":"scripts/__DoLaterInitialize/__DoLaterInitialize.yy",},"order":1,},
+    {"id":{"name":"__DoLaterSystem","path":"scripts/__DoLaterSystem/__DoLaterSystem.yy",},"order":1,},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":1,},
   ],
   "Options": [

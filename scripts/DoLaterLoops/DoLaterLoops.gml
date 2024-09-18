@@ -1,5 +1,9 @@
 // Feather disable all
 
+/// Creates a one-shot time source that executes a function after a certain number of frames
+/// for a fixed number of repeats. The time source's parent will be `DO_LATER_DEFAULT_PARENT`
+/// unless overriden by `DoLaterSetParent()`.
+/// 
 /// @param frames
 /// @param loopCount
 /// @param function

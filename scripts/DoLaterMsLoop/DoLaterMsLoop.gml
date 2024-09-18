@@ -1,5 +1,9 @@
 // Feather disable all
 
+/// Creates a one-shot time source that executes a function after a certain number of milliseconds
+/// of real time repeatedly until stoppped with `time_source_stop()`. The time source's parent will
+/// be `DO_LATER_DEFAULT_PARENT` unless overriden by `DoLaterSetParent()`.
+/// 
 /// @param milliseconds
 /// @param function
 /// @param argument
