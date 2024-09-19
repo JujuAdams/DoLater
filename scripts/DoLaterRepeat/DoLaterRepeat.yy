@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"DoLaterSetParent",
+  "%Name":"DoLaterRepeat",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"DoLaterSetParent",
+  "name":"DoLaterRepeat",
   "parent":{
-    "name":"Parents",
-    "path":"folders/DoLater/Parents.yy",
+    "name":"Functions",
+    "path":"folders/DoLater/Functions.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

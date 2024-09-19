@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__DoLaterSystem",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "(System)",
-    "path": "folders/DoLater/(System).yy",
+  "$GMScript":"v1",
+  "%Name":"__DoLaterSystem",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__DoLaterSystem",
+  "parent":{
+    "name":"(System)",
+    "path":"folders/DoLater/(System).yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
