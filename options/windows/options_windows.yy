@@ -4,7 +4,7 @@
   "name": "Windows",
   "option_windows_display_name": "Do Later",
   "option_windows_executable_name": "${projectName}.exe",
-  "option_windows_version": "4.2.0.0",
+  "option_windows_version": "4.2.1.0",
   "option_windows_company_info": "Juju Adams",
   "option_windows_product_info": "Do Later",
   "option_windows_copyright_info": "Juju Adams (c) 2024",

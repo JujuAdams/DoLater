@@ -1,5 +1,5 @@
 <p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/DoLater/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
-<h1 align="center">DoLater 4.2.0</h1>
+<h1 align="center">DoLater 4.2.1</h1>
 <p align="center">Better <code>call_later()</code> code execution for GameMaker 2022 LTS</p>
 
 &nbsp;
