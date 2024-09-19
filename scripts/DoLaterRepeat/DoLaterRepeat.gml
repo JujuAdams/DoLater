@@ -8,7 +8,7 @@
 ///      you are not going to restart it.
 /// 
 /// @param frames
-/// @param loopCount
+/// @param repeatCount
 /// @param function
 /// @param argument
 /// @param ...
@@ -17,9 +17,9 @@ function DoLaterRepeat()
 {
     static _system = __DoLaterSystem();
     
-    var _frames    = argument[0];
+    var _frames      = argument[0];
     var _repeatCount = argument[1];
-    var _function  = argument[2];
+    var _function    = argument[2];
     
     var _arguments = array_create(argument_count-2);
     var _i = 0;

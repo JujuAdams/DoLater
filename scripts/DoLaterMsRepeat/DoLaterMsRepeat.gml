@@ -8,7 +8,7 @@
 ///      you are not going to restart it.
 /// 
 /// @param milliseconds
-/// @param loopCount
+/// @param repeatCount
 /// @param function
 /// @param argument
 /// @param ...
@@ -18,7 +18,7 @@ function DoLaterMsRepeat()
     static _system = __DoLaterSystem();
     
     var _milliseconds = argument[0];
-    var _repeatCount    = argument[1];
+    var _repeatCount  = argument[1];
     var _function     = argument[2];
     
     var _arguments = array_create(argument_count-2);
