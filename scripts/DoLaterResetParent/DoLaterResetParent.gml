@@ -1,8 +1,8 @@
 // Feather disable all
 
+/// Resets the global parent for newly created DoLater time sourcesto `DO_LATER_DEFAULT_PARENT`.
+
 function DoLaterResetParent()
 {
-    static _global = __DoLaterInitialize();
-    
     DoLaterSetParent(DO_LATER_DEFAULT_PARENT);
 }

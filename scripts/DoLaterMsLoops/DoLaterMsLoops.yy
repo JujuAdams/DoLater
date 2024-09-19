@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "DoLaterLoop",
+  "name": "DoLaterMsLoops",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

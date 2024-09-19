@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "__DoLaterInitialize",
+  "name": "DoLaterStopChildren",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "(System)",
-    "path": "folders/DoLater/(System).yy",
+    "name": "Parents",
+    "path": "folders/DoLater/Parents.yy",
   },
 }
