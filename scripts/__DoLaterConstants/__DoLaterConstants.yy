@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__DoLaterConstants",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "DoLater",
-    "path": "folders/DoLater.yy",
+  "$GMScript":"v1",
+  "%Name":"__DoLaterConstants",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__DoLaterConstants",
+  "parent":{
+    "name":"DoLater",
+    "path":"folders/DoLater.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
